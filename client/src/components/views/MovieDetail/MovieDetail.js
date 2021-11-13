@@ -8,7 +8,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../Config'
 import GridCards from '../commons/GridCards';
 import MainImage from '../../views/LandingPage/Sections/MainImage';
 import MovieInfo from './Sections/MovieInfo';
-//import Favorite from './Sections/Favorite';
+import Favorite from './Sections/Favorite';
 function MovieDetailPage(props) {
 
     const movieId = props.match.params.movieId
@@ -89,7 +89,7 @@ function MovieDetailPage(props) {
             <div style={{ width: '85%', margin: '1rem auto' }}>
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                   {/* <Favorite movieInfo={Movie} movieId={movieId} userFrom={localStorage.getItem('userId')} /> */}
+                   <Favorite movieInfo={Movie} movieId={movieId} userFrom={localStorage.getItem('userId')} />
                 </div>
 
 
