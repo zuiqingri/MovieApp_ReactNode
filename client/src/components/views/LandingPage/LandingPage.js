@@ -3,7 +3,7 @@ import { FaCode } from "react-icons/fa";
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 import MainImage from './Sections/MainImage';
 import axios from 'axios';
-//import GridCards from '../commons/GridCards';
+import GridCards from '../commons/GridCards';
 import { Row } from 'antd';
 
 function LandingPage() {
@@ -61,7 +61,7 @@ function LandingPage() {
 
                 <Row gutter={[16, 16]} >
 
-                    {/* {Movies && Movies.map((movie, index) => (
+                    {Movies && Movies.map((movie, index) => (
                         <React.Fragment key={index}>
                             <GridCards
                                 landingPage
@@ -71,7 +71,7 @@ function LandingPage() {
                                 movieName={movie.original_title}
                             />
                         </React.Fragment>
-                    ))} */}
+                    ))}
 
                 </Row>
 
