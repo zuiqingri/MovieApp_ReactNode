@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { List, Avatar, Row, Col, Button } from 'antd';
 import axios from 'axios';
 
-//import Comments from './Sections/Comments'
-//import LikeDislikes from './Sections/LikeDislikes';
+import Comments from './Sections/Comments'
+import LikeDislikes from './Sections/LikeDislikes';
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../Config'
 import GridCards from '../commons/GridCards';
 import MainImage from '../../views/LandingPage/Sections/MainImage';
@@ -27,16 +27,16 @@ function MovieDetailPage(props) {
         let endpointForMovieInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
         fetchDetailInfo(endpointForMovieInfo)
 
-        // axios.post('/api/comment/getComments', movieVariable)
-        //     .then(response => {
-        //         console.log(response)
-        //         if (response.data.success) {
-        //             console.log('response.data.comments', response.data.comments)
-        //             setCommentLists(response.data.comments)
-        //         } else {
-        //             alert('Failed to get comments Info')
-        //         }
-        //     })
+        axios.post('/api/comment/getComments', movieVariable)
+            .then(response => {
+                console.log(response)
+                if (response.data.success) {
+                    console.log('response.data.comments', response.data.comments)
+                    setCommentLists(response.data.comments)
+                } else {
+                    alert('Failed to get comments Info')
+                }
+            })
 
     }, [])
 
@@ -124,11 +124,11 @@ function MovieDetailPage(props) {
                 <br />
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    {/* <LikeDislikes video videoId={movieId} userId={localStorage.getItem('userId')} /> */}
+                    <LikeDislikes video videoId={movieId} userId={localStorage.getItem('userId')} />
                 </div>
 
                 {/* Comments */}
-                {/* <Comments movieTitle={Movie.original_title} CommentLists={CommentLists} postId={movieId} refreshFunction={updateComment} /> */}
+                <Comments movieTitle={Movie.original_title} CommentLists={CommentLists} postId={movieId} refreshFunction={updateComment} />
 
             </div>
 
